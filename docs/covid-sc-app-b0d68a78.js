@@ -2890,4 +2890,4 @@ class Qt extends nt {
 }
 customElements.define('covid-sc-app', Qt);
 export { Qt as CovidScApp };
-//# sourceMappingURL=covid-sc-app-5bd706da.js.map
+//# sourceMappingURL=covid-sc-app-b0d68a78.js.map

@@ -30,16 +30,16 @@ self.__precacheManifest = [
     revision: '59587dc8b4dd2660f8d8c18a29ee2b84',
   },
   {
-    url: 'covid-sc-app-5bd706da.js',
-    revision: '455bd9d271f88f2f8109d8ee17a75840',
+    url: 'covid-sc-app-b0d68a78.js',
+    revision: 'a812804c75d490d53d26014a72fd08dc',
   },
   {
     url: 'index.html',
-    revision: '4f42455de7fa1011a2c12b381fb9bc85',
+    revision: 'c1535e55e841c9ee74ff53a97a093efe',
   },
   {
-    url: 'legacy/covid-sc-app-d57514a9.js',
-    revision: '57c43100e8231939e44506d433d5adf7',
+    url: 'legacy/covid-sc-app-0827f511.js',
+    revision: 'f89cfd9761b4765ebd513e72ee7d4a71',
   },
   {
     url: 'polyfills/core-js.577a5602a7262d6256830802d4aaab43.js',
