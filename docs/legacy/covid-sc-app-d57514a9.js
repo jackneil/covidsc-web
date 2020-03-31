@@ -3082,7 +3082,7 @@ System.register([], function(t) {
       wt(le()), wt(de());
       function ve() {
         var t = h([
-          ':host([ghost]){height:0}:host([ghost]) > .content{display:none}:host{border-radius:4px;background-color:#f0f0f0;overflow:hidden}.title{height:32px;line-height:32px;background-color:#d8d8d8}.value{color:#393939}.delta{color:#8c8c8c}',
+          ':host([ghost]){height:0}:host([ghost]) > .content{display:none}:host{border-radius:4px;background-color:#f0f0f0;overflow:hidden;font-family:Roboto;font-size:16px;font-weight:400;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;text-align:center;color:#393939}.title{height:32px;line-height:32px;background-color:#d8d8d8}.value{color:#393939}.delta{color:#8c8c8c}',
         ]);
         return (
           (ve = function() {
@@ -4276,4 +4276,4 @@ System.register([], function(t) {
     },
   };
 });
-//# sourceMappingURL=covid-sc-app-f90e2fda.js.map
+//# sourceMappingURL=covid-sc-app-d57514a9.js.map

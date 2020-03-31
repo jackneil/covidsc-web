@@ -2151,7 +2151,7 @@ customElements.define(
       return [
         Dt,
         Nt,
-        it`:host([ghost]){height:0}:host([ghost]) > .content{display:none}:host{border-radius:4px;background-color:#f0f0f0;overflow:hidden}.title{height:32px;line-height:32px;background-color:#d8d8d8}.value{color:#393939}.delta{color:#8c8c8c}`,
+        it`:host([ghost]){height:0}:host([ghost]) > .content{display:none}:host{border-radius:4px;background-color:#f0f0f0;overflow:hidden;font-family:Roboto;font-size:16px;font-weight:400;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;text-align:center;color:#393939}.title{height:32px;line-height:32px;background-color:#d8d8d8}.value{color:#393939}.delta{color:#8c8c8c}`,
       ];
     }
     render() {
@@ -2890,4 +2890,4 @@ class Qt extends nt {
 }
 customElements.define('covid-sc-app', Qt);
 export { Qt as CovidScApp };
-//# sourceMappingURL=covid-sc-app-4228501d.js.map
+//# sourceMappingURL=covid-sc-app-5bd706da.js.map

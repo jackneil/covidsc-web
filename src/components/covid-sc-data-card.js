@@ -7,13 +7,12 @@ import '@material/mwc-button';
 import { IronFlex, IronFlexAlignment } from './flex-styles.js';
 
 export class CovidScDataCard extends LitElement {
-
   constructor() {
     super();
     // redundant placeholder
-    this.title = "";
-    this.value = "";
-    this.delta = "";
+    this.title = '';
+    this.value = '';
+    this.delta = '';
   }
 
   static get properties() {
@@ -41,6 +40,15 @@ export class CovidScDataCard extends LitElement {
           background-color: #f0f0f0;
           /* margin: 6px 8px; */
           overflow: hidden;
+          font-family: Roboto;
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: center;
+          color: #393939;
         }
         .title {
           height: 32px;
@@ -53,29 +61,25 @@ export class CovidScDataCard extends LitElement {
         .delta {
           color: #8c8c8c;
         }
-
-      `
+      `,
     ];
   }
 
   render() {
     return html`
-        <div class="layout vertical flex content" style="height: 100%;">
-          <div class="layout vertical flex">
-            <div class="title"><center>${this.title}</center></div>
-            <div class="layout vertical flex center-justified">
-              <div class="value"><center>${this.value}</center></div>
-              <div class="delta"><center>${this.delta}</center></div>
-            </div>
+      <div class="layout vertical flex content" style="height: 100%;">
+        <div class="layout vertical flex">
+          <div class="title"><center>${this.title}</center></div>
+          <div class="layout vertical flex center-justified">
+            <div class="value"><center>${this.value}</center></div>
+            <div class="delta"><center>${this.delta}</center></div>
           </div>
         </div>
+      </div>
     `;
   }
 
-  firstUpdated() {
-
-  }
-
+  firstUpdated() {}
 }
 
 customElements.define('covid-sc-data-card', CovidScDataCard);
