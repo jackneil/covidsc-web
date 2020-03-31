@@ -67,7 +67,6 @@ export class CovidScMap extends LitElement {
     // drawCircles(map, confirmedCircles);
     // drawCircles(map, deathCircles);
 
-    console.log(map);
     return map;
   }
 
@@ -124,7 +123,6 @@ export class CovidScMap extends LitElement {
 
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
-      console.log(`${propName} changed. oldValue: ${oldValue}, ${changedProperties.get(propName)}`);
       if(propName === "hotspots"){
         if(this.hotspots.confirmedCircles){
           if(window.map) this.drawCircles(window.map, this.hotspots.confirmedCircles);

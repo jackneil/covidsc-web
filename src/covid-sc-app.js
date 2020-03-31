@@ -33,7 +33,7 @@ export class CovidScApp extends LitElement {
       IronFlexAlignment,
       css`
         :host {
-          min-height: 100vh;
+          /* min-height: 100vh; */
           /* display: flex;
           flex-direction: column;
           align-items: center;
@@ -41,32 +41,22 @@ export class CovidScApp extends LitElement {
           font-size: calc(10px + 2vmin);
           color: #1a2b42;
           margin: 0 auto;
-          text-align: center;
 
           --mdc-theme-primary: #0b4192e0;
           --mdc-theme-on-primary: white;
         }
 
-        main {
+        .main {
           margin-left: auto;
           margin-right: auto;
           flex-grow: 1;
           align-items: center;
           max-width: 816px;
-        }
-
-        .logo > svg {
-          margin-top: 36px;
-          animation: app-logo-spin infinite 20s linear;
-        }
-
-        @keyframes app-logo-spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
+          min-height: calc(100% - 48px);
+          /* height: auto !important;
+          height: calc(100% - 48px); */
+          margin-bottom: -48px;
+          background-color: #ffffff;
         }
 
         .app-footer {
@@ -107,10 +97,12 @@ export class CovidScApp extends LitElement {
     return html`
       <mwc-top-app-bar dense>
         <div slot="title">COVID SC</div>
-        <div><!-- content --></div>
+        <div></div>
       </mwc-top-app-bar>
-      <main>
-        ${this.page}
+      <div class="main" style="height:calc(100% - 48px); min-height:calc(100% - 48px); ">
+        <div style="height:100%">
+          ${this.page}
+        </div>
       </main>
     `;
   }

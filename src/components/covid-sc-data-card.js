@@ -62,10 +62,10 @@ export class CovidScDataCard extends LitElement {
     return html`
         <div class="layout vertical flex content" style="height: 100%;">
           <div class="layout vertical flex">
-            <div class="title">${this.title}</div>
+            <div class="title"><center>${this.title}</center></div>
             <div class="layout vertical flex center-justified">
-              <div class="value">${this.value}</div>
-              <div class="delta">${this.delta}</div>
+              <div class="value"><center>${this.value}</center></div>
+              <div class="delta"><center>${this.delta}</center></div>
             </div>
           </div>
         </div>

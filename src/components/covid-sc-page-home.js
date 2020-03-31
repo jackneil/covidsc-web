@@ -31,6 +31,7 @@ export class CovidScPageHome extends LitElement {
       IronFlexAlignment,
       css`
         :host {
+          background-color: #ffffff;
         }
 
         .app-footer {
@@ -204,96 +205,99 @@ export class CovidScPageHome extends LitElement {
   render() {
     return html`
 
-      <div class="layout vertical module-container">
-        <div class="module-title">
-          Get Help
-        </div>
-        <div class="layout horizontal center-justified wrap">
-          <!--
-            <a href="/symptoms" class="buttonlink"><mwc-button alt="Get help" unelevated class="action-button" label="CHECK SYMPTOMS"></mwc-button></a>
-            <a href="/resources" class="buttonlink"><mwc-button alt="Get help" unelevated class="action-button" label="FIND RESOURCES"></mwc-button></a>
-          -->
-          <a href="https://covidnearyou.org/" target="_blank" class="layout flex action-button buttonlink"><mwc-button alt="Get help" unelevated label="CHECK SYMPTOMS" style="width: inherit;"></mwc-button></a>
-          <a href="https://www.scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19" target="_blank" class="layout flex action-button buttonlink"><mwc-button alt="Get help" unelevated label="FIND RESOURCES" style="width: inherit;"></mwc-button></a>
-        </div>
-      </div>
-      <div class="layout vertical module-container">
-        <div class="module-title">
-          Confirmed Cases/Deaths
-        </div>
-        <div class="layout horizontal center-justified wrap">
-          <div class="layout horizontal flex action-button min-margin" style="max-width:392px;">
-            <covid-sc-data-card title="SC Cases"
-              value="${(this.counts && this.counts.state && this.counts.state.confirmed) ? this.counts.state.confirmed : ''}"
-              delta="${(this.counts && this.counts.state && this.counts.state.confirmedChanged) ? this.counts.state.confirmedChanged : ''}"
-            ></covid-sc-data-card>
-            <covid-sc-data-card title="SC Deaths"
-              value="${(this.counts && this.counts.state && this.counts.state.deaths) ? this.counts.state.deaths : ''}"
-              delta="${(this.counts && this.counts.state && this.counts.state.deathsChanged) ? this.counts.state.deathsChanged : ''}"
-            ></covid-sc-data-card>
+      <div style="background-color: #ffffff; min-height:calc( 100% );" class="layout vertical">
+        <div class="layout vertical module-container">
+          <div class="module-title">
+            Get Help
           </div>
-          <div class="layout horizontal flex action-button min-margin" style="max-width:392px;">
-            <covid-sc-data-card title="USA Cases"
-              value="${(this.counts && this.counts.national && this.counts.national.confirmed) ? this.counts.national.confirmed : ''}"
-              delta="${(this.counts && this.counts.national && this.counts.national.confirmedChanged) ? this.counts.national.confirmedChanged : ''}"
-            ></covid-sc-data-card>
-            <covid-sc-data-card title="USA Deaths"
-              value="${(this.counts && this.counts.national && this.counts.national.deaths) ? this.counts.national.deaths : ''}"
-              delta="${(this.counts && this.counts.national && this.counts.national.deathsChanged) ? this.counts.national.deathsChanged : ''}"
-            ></covid-sc-data-card>
+          <div class="layout horizontal center-justified wrap">
+          <!-- <a href="/symptoms" class="layout flex action-button buttonlink"><mwc-button alt="Check Symptoms" unelevated label="CHECK SYMPTOMS" style="width: inherit;"></mwc-button></a> -->
+            <a href="https://covidnearyou.org/" target="_blank" class="layout flex action-button buttonlink"><mwc-button alt="Get help" unelevated label="CHECK SYMPTOMS" style="width: inherit;"></mwc-button></a>
+            <a href="/resources" class="layout flex action-button buttonlink"><mwc-button alt="Find Resources" unelevated label="FIND RESOURCES" style="width: inherit;"></mwc-button></a>
+            <!-- <a href="https://covidnearyou.org/" target="_blank" class="layout flex action-button buttonlink"><mwc-button alt="Get help" unelevated label="CHECK SYMPTOMS" style="width: inherit;"></mwc-button></a>
+            <a href="https://www.scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19" target="_blank" class="layout flex action-button buttonlink"><mwc-button alt="Get help" unelevated label="FIND RESOURCES" style="width: inherit;"></mwc-button></a> -->
           </div>
-          <!-- <covid-sc-data-card ghost></covid-sc-data-card>
-          <covid-sc-data-card ghost></covid-sc-data-card>
-          <covid-sc-data-card ghost></covid-sc-data-card>
-          <covid-sc-data-card ghost></covid-sc-data-card> -->
         </div>
-        <div class="module-footer">
-          ${(this.counts && this.counts.national && this.counts.national.lastUpdate) ? `Updated ${this.counts.national.lastUpdate}` : ""}
-        </div>
-      </div>
-      <div class="layout vertical module-container">
-        <div class="module-title">
-          Confirmed Cases/Deaths By Region
-        </div>
-        <covid-sc-map .map="${this.map}" .hotspots="${this.hotspots}" class="module-content" style="height:400px; box-sizing:border-box; width: calc(100%-8px);"></covid-sc-map>
-        <div class="module-footer">
-          ${(this.counts && this.counts.national && this.counts.national.lastUpdate) ? `Updated ${this.counts.national.lastUpdate}` : ""}
-        </div>
-      </div>
-      <div class="layout vertical module-container">
-        <div class="module-title">
-          Confirmed Cases/Deaths By Region
-        </div>
-        <div class="layout vertical data-table module-content">
-          <div class="layout horizontal center data-table-row">
-            <div><b>County</b></div>
-            <div class="layout horizontal center data-table-row">
-              <div><b>Growth Rate</b></div>
-              <div><b>Change</b></div>
+        <div class="layout vertical module-container">
+          <div class="module-title">
+            Confirmed Cases/Deaths
+          </div>
+          <div class="layout horizontal center-justified wrap">
+            <div class="layout horizontal flex action-button min-margin" style="max-width:392px;">
+              <covid-sc-data-card title="SC Cases"
+                value="${(this.counts && this.counts.state && this.counts.state.confirmed) ? this.counts.state.confirmed : ''}"
+                delta="${(this.counts && this.counts.state && this.counts.state.confirmedChanged) ? this.counts.state.confirmedChanged : ''}"
+              ></covid-sc-data-card>
+              <covid-sc-data-card title="SC Deaths"
+                value="${(this.counts && this.counts.state && this.counts.state.deaths) ? this.counts.state.deaths : ''}"
+                delta="${(this.counts && this.counts.state && this.counts.state.deathsChanged) ? this.counts.state.deathsChanged : ''}"
+              ></covid-sc-data-card>
             </div>
+            <div class="layout horizontal flex action-button min-margin" style="max-width:392px;">
+              <covid-sc-data-card title="USA Cases"
+                value="${(this.counts && this.counts.national && this.counts.national.confirmed) ? this.counts.national.confirmed : ''}"
+                delta="${(this.counts && this.counts.national && this.counts.national.confirmedChanged) ? this.counts.national.confirmedChanged : ''}"
+              ></covid-sc-data-card>
+              <covid-sc-data-card title="USA Deaths"
+                value="${(this.counts && this.counts.national && this.counts.national.deaths) ? this.counts.national.deaths : ''}"
+                delta="${(this.counts && this.counts.national && this.counts.national.deathsChanged) ? this.counts.national.deathsChanged : ''}"
+              ></covid-sc-data-card>
+            </div>
+            <!-- <covid-sc-data-card ghost></covid-sc-data-card>
+            <covid-sc-data-card ghost></covid-sc-data-card>
+            <covid-sc-data-card ghost></covid-sc-data-card>
+            <covid-sc-data-card ghost></covid-sc-data-card> -->
           </div>
-          ${this.countyList.map(
-            item => html`
+          <div class="module-footer">
+            ${(this.counts && this.counts.national && this.counts.national.lastUpdate) ? `Updated ${this.counts.national.lastUpdate}` : ""}
+          </div>
+        </div>
+        <div class="layout vertical module-container">
+          <div class="module-title">
+            Confirmed Cases/Deaths By Region
+          </div>
+          <covid-sc-map .map="${this.map}" .hotspots="${this.hotspots}" class="module-content" style="height:400px; box-sizing:border-box; width: calc(100%-8px);"></covid-sc-map>
+          <div class="module-footer">
+            ${(this.counts && this.counts.national && this.counts.national.lastUpdate) ? `Updated ${this.counts.national.lastUpdate}` : ""}
+          </div>
+        </div>
+        <div class="layout vertical module-container">
+          <div class="module-title">
+            Confirmed Cases/Deaths By Region
+          </div>
+          <div class="layout vertical data-table module-content">
+            <div class="layout horizontal center data-table-row">
+              <div><b>County</b></div>
               <div class="layout horizontal center data-table-row">
-                <div>${item.County}:</div>
-                <div class="layout horizontal center data-table-row">
-                  <div>${item.Confirmed_POPADJ_GF}</div>
-                  <div>(${item.Confirmed_POPADJ_GF_Change})</div>
-                </div>
+                <div><b>Growth Rate</b></div>
+                <div><b>Change</b></div>
               </div>
-            `
-          )}
+            </div>
+            ${this.countyList.map(
+              item => html`
+                <div class="layout horizontal center data-table-row">
+                  <div>${item.County}:</div>
+                  <div class="layout horizontal center data-table-row">
+                    <div>${item.Confirmed_POPADJ_GF}</div>
+                    <div>(${item.Confirmed_POPADJ_GF_Change})</div>
+                  </div>
+                </div>
+              `
+            )}
+          </div>
+          <div class="module-footer">
+            ${(this.counts && this.counts.national && this.counts.national.lastUpdate) ? `Updated ${this.counts.national.lastUpdate}` : ""}
+          </div>
         </div>
-        <div class="module-footer">
-          ${(this.counts && this.counts.national && this.counts.national.lastUpdate) ? `Updated ${this.counts.national.lastUpdate}` : ""}
-        </div>
-      </div>
-      <div class="footer layout vertical center-justified">
-        <div>
-          Powered by <a href="https://www.hank.ai/" class="buttonlink">Hank.ai</a> and <a href="https://www.krum.io/" class="buttonlink">Krumware</a>
-        </div>
-      </div>
+        <div class="layout flex">
 
+        </div>
+        <div class="footer layout vertical center-justified">
+          <div>
+            Powered by <a target="_blank" href="https://www.hank.ai/?referrer=covidsc" class="buttonlink">Hank.ai</a> and <a target="_blank" href="https://www.krum.io/?referrer=covidsc" class="buttonlink">Krumware</a>
+          </div>
+        </div>
+      </div>
 
     `;
   }
@@ -317,7 +321,6 @@ export class CovidScPageHome extends LitElement {
     // var jsonfile = "https://d3e6xqdw3pm38f.cloudfront.net/data/covid_latest.json";
     const jsonfile = "https://covidsc.com/data/covid_latest.json?v=6";
     // var jsonfile = "data/covid_latest.json";
-    console.log(`loading json file ${  jsonfile}`);
     function commas(num, decimalPlaces=0){
       return num.toLocaleString(undefined, {maximumFractionDigits:decimalPlaces})
 
@@ -364,7 +367,7 @@ export class CovidScPageHome extends LitElement {
           if(d.Confirmed_Change > 0) this.counts.state.confirmedChanged = `+${this.counts.state.confirmedChanged }`;
           if(d.Deaths_Change > 0) this.counts.state.deathsChanged = `+${this.counts.state.deathsChanged }`;
           this.counts.state.lastUpdate = new Date(d.LastUpdate).toLocaleDateString();
-          console.log("State Counts", this.counts.state);
+          // console.log("State Counts", this.counts.state);
         }
 
         // this looks like the header counts for USA
@@ -373,7 +376,7 @@ export class CovidScPageHome extends LitElement {
           if(d.Confirmed_Change > 0) this.counts.national.confirmedChanged = `+${this.counts.national.confirmedChanged }`;
           if(d.Deaths_Change > 0) this.counts.national.deathsChanged = `+${this.counts.national.deathsChanged }`;
           this.counts.national.lastUpdate = new Date(d.LastUpdate).toLocaleDateString();
-          console.log("National Counts", this.counts.national);
+          // console.log("National Counts", this.counts.national);
         }
 
       });
