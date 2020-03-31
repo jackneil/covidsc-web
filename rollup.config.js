@@ -2,7 +2,6 @@
 // const deepmerge = require('deepmerge');
 // const { injectManifest /* generateSW */ } = require('rollup-plugin-workbox');
 
-
 // // if you need to support IE11 use "modern-and-legacy-config" instead.
 // // import { createCompatibilityConfig } from '@open-wc/building-rollup';
 // // export default createCompatibilityConfig({ input: './index.html' });
@@ -24,12 +23,10 @@ import { createCompatibilityConfig } from '@open-wc/building-rollup';
 import copy from 'rollup-plugin-cpy';
 import { generateSW } from 'rollup-plugin-workbox';
 
-
 const config = createCompatibilityConfig({
   input: './index.html',
   outputDir: 'docs',
-  plugins: [
-  ],
+  plugins: [],
 });
 
 export default [
@@ -39,8 +36,8 @@ export default [
     plugins: [
       ...config[0].plugins,
       copy({
-        // copy over all images files
-        files: ['src/**/*.png','src/**/*.json'],
+        // copy over all image files
+        files: ['src/**/*.png', 'src/**/*.json', '404.html', 'CNAME'],
         dest: 'docs',
         options: {
           // parents makes sure to preserve the original folder structure
@@ -50,7 +47,7 @@ export default [
       generateSW({
         swDest: '/docs/sw.js',
         globDirectory: '/docs/',
-      })
+      }),
     ],
   },
 
