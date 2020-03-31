@@ -27,7 +27,7 @@ self.addEventListener('message', event => {
 self.__precacheManifest = [
   {
     url: '404.html',
-    revision: '59587dc8b4dd2660f8d8c18a29ee2b84',
+    revision: '12a3983c9a553685a6753b7ccfd7b63d',
   },
   {
     url: 'covid-sc-app-b0d68a78.js',
