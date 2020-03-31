@@ -319,7 +319,7 @@ export class CovidScPageHome extends LitElement {
     // var jsonfile = "https://mymed.udifi.com/data/covid_latest.json";
     // var jsonfile = "http://covidsc.com.s3-website.us-east-2.amazonaws.com/data/covid_latest.json";
     // var jsonfile = "https://d3e6xqdw3pm38f.cloudfront.net/data/covid_latest.json";
-    const jsonfile = "https://covidsc.com/data/covid_latest.json?v=6";
+    const jsonfile = "https://aws.covidsc.com/data/covid_latest.json?v=202003310603";
     // var jsonfile = "data/covid_latest.json";
     function commas(num, decimalPlaces=0){
       return num.toLocaleString(undefined, {maximumFractionDigits:decimalPlaces})
