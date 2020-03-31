@@ -37,7 +37,7 @@ export default [
       ...config[0].plugins,
       copy({
         // copy over all image files
-        files: ['src/**/*.png', 'src/**/*.json', '404.html', 'CNAME'],
+        files: ['src/**/*.png', 'src/**/*.json', '404.html', 'CNAME', 'favicon.png'],
         dest: 'docs',
         options: {
           // parents makes sure to preserve the original folder structure
