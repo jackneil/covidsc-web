@@ -2240,7 +2240,7 @@ customElements.define(
       function n(t, e = 0) {
         return t.toLocaleString(void 0, { maximumFractionDigits: e });
       }
-      fetch('https://covidsc.com/data/covid_latest.json?v=6')
+      fetch('https://aws.covidsc.com/data/covid_latest.json?v=202003310603')
         .then(t => t.json())
         .then(o => {
           let a = [];
@@ -2890,4 +2890,4 @@ class Qt extends nt {
 }
 customElements.define('covid-sc-app', Qt);
 export { Qt as CovidScApp };
-//# sourceMappingURL=covid-sc-app-288f3b34.js.map
+//# sourceMappingURL=covid-sc-app-4228501d.js.map

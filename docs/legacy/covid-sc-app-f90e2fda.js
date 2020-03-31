@@ -3280,7 +3280,7 @@ System.register([], function(t) {
                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0;
                     return t.toLocaleString(void 0, { maximumFractionDigits: e });
                   }
-                  fetch('https://covidsc.com/data/covid_latest.json?v=6')
+                  fetch('https://aws.covidsc.com/data/covid_latest.json?v=202003310603')
                     .then(function(t) {
                       return t.json();
                     })
@@ -4276,4 +4276,4 @@ System.register([], function(t) {
     },
   };
 });
-//# sourceMappingURL=covid-sc-app-449ca73f.js.map
+//# sourceMappingURL=covid-sc-app-f90e2fda.js.map
