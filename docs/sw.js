@@ -35,7 +35,7 @@ self.__precacheManifest = [
   },
   {
     url: 'index.html',
-    revision: 'c1535e55e841c9ee74ff53a97a093efe',
+    revision: 'c6f916ea4863dc5725644596aee7400b',
   },
   {
     url: 'legacy/covid-sc-app-0827f511.js',
