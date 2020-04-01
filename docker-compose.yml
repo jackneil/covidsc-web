@@ -1,0 +1,17 @@
+version: '3'
+services:
+  covid-sc:
+    image: krumware/covid-sc:master
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    networks:
+      - backend
+    ports:
+      - "8000:8000"
+    environment:
+      PORT: 8000
+
+networks:
+  backend:
+    driver: bridge
