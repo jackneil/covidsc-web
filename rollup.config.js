@@ -1,40 +1,26 @@
-// import { createCompatibilityConfig } from '@open-wc/building-rollup';
-// const deepmerge = require('deepmerge');
-// const { injectManifest /* generateSW */ } = require('rollup-plugin-workbox');
-
-// // if you need to support IE11 use "modern-and-legacy-config" instead.
-// // import { createCompatibilityConfig } from '@open-wc/building-rollup';
-// // export default createCompatibilityConfig({ input: './index.html' });
-
-// const basicConfig = createCompatibilityConfig({
-//   input: './index.html',
-//   plugins: {
-//     workbox: false,
-//   },
-// });
-
-// const workboxConfig = require('./workbox-config.js');
-
-// export default deepmerge(basicConfig, {
-//   plugins: [injectManifest(workboxConfig)],
-// });
-
 import { createCompatibilityConfig } from '@open-wc/building-rollup';
 import copy from 'rollup-plugin-cpy';
 import { generateSW } from 'rollup-plugin-workbox';
+// import cache from './workbox-runtime-cache.js';
 
 const config = createCompatibilityConfig({
   input: './index.html',
   outputDir: 'docs',
-  plugins: [],
+  plugins: {
+    workbox: false,
+  },
 });
 
+// console.log(cache);
+
 export default [
-  // add plugin to the first config
+  // leave the legacy config untouched
+  config[0],
+  // add plugin to the non-legacy config
   {
-    ...config[0],
+    ...config[1],
     plugins: [
-      ...config[0].plugins,
+      ...config[1].plugins,
       copy({
         // copy over all image files
         files: ['images/**/*.png', 'src/**/*.json', '404.html', 'CNAME', 'favicon.png'],
@@ -45,12 +31,34 @@ export default [
         },
       }),
       generateSW({
-        swDest: '/docs/sw.js',
-        globDirectory: '/docs/',
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts',
+              expiration: {
+                maxEntries: 4,
+                maxAgeSeconds: 365 * 24 * 60 * 60, // 365 days
+              },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/aws\.covidsc\.com\/.*/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'data',
+              networkTimeoutSeconds: 5,
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 5 * 24 * 60 * 60, // 5 days
+              },
+            },
+          },
+        ],
+        swDest: 'docs/sw.js',
+        globDirectory: 'docs/',
       }),
     ],
   },
-
-  // leave the second config untouched
-  config[1],
 ];
