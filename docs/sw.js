@@ -31,7 +31,7 @@ self.__precacheManifest = [
   },
   {
     url: 'covid-sc-app-b0d68a78.js',
-    revision: 'a812804c75d490d53d26014a72fd08dc',
+    revision: '636defcba9a4e5d9022b4e8e3cff40e0',
   },
   {
     url: 'index.html',
