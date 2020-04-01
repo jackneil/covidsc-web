@@ -12,12 +12,6 @@ services:
     environment:
       PORT: 8000
 
-  web-cli:
-    image: krumware/covid-sc:master
-    networks:
-      - backend
-    command: sh
-
 networks:
   backend:
     driver: bridge
