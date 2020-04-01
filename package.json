@@ -28,7 +28,8 @@
     "lint-staged": "^8.0.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.15.4",
-    "rollup-plugin-cpy": "^2.0.1"
+    "rollup-plugin-cpy": "^2.0.1",
+    "rollup-plugin-workbox": "^5.0.1"
   },
   "eslintConfig": {
     "extends": [
@@ -60,7 +61,6 @@
     "@material/mwc-top-app-bar": "^0.14.1",
     "lit-element": "^2.0.1",
     "lit-html": "^1.0.0",
-    "pwa-helpers": "^0.9.1",
-    "rollup-plugin-workbox": "^5.0.1"
+    "pwa-helpers": "^0.9.1"
   }
 }
