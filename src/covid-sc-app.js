@@ -12,12 +12,11 @@ import '@material/mwc-top-app-bar';
 import { IronFlex, IronFlexAlignment } from './components/flex-styles.js';
 
 export class CovidScApp extends LitElement {
-
   constructor() {
     super();
     // redundant placeholder
-    installRouter((location) => this.handleNavigation(location));
-    this.location = "/";
+    installRouter(location => this.handleNavigation(location));
+    this.location = '/';
   }
 
   static get properties() {
@@ -32,6 +31,8 @@ export class CovidScApp extends LitElement {
       IronFlex,
       IronFlexAlignment,
       css`
+        :root {
+        }
         :host {
           /* min-height: 100vh; */
           /* display: flex;
@@ -41,9 +42,6 @@ export class CovidScApp extends LitElement {
           font-size: calc(10px + 2vmin);
           color: #1a2b42;
           margin: 0 auto;
-
-          --mdc-theme-primary: #0b4192e0;
-          --mdc-theme-on-primary: white;
         }
 
         .main {
@@ -89,7 +87,7 @@ export class CovidScApp extends LitElement {
           margin: 10px 8px 4px 8px;
           text-align: left;
         }
-      `
+      `,
     ];
   }
 
@@ -107,26 +105,30 @@ export class CovidScApp extends LitElement {
     `;
   }
 
-  renderPage(location){
-    switch(location.pathname){
-      case "/symptoms":
-        return html`<covid-sc-page-symptoms></covid-sc-page-symptoms>`;
-      case "/resources":
-        return html`<covid-sc-page-resources></covid-sc-page-resources>`;
+  // eslint-disable-next-line class-methods-use-this
+  renderPage(location) {
+    switch (location.pathname) {
+      case '/symptoms':
+        return html`
+          <covid-sc-page-symptoms></covid-sc-page-symptoms>
+        `;
+      case '/resources':
+        return html`
+          <covid-sc-page-resources></covid-sc-page-resources>
+        `;
       default:
-        return html`<covid-sc-page-home></covid-sc-page-home>`;
+        return html`
+          <covid-sc-page-home></covid-sc-page-home>
+        `;
     }
   }
 
-  firstUpdated() {
+  firstUpdated() {}
 
-  }
-
-  handleNavigation(location){
+  handleNavigation(location) {
     this.location = location;
     this.page = this.renderPage(location);
   }
-
 }
 
 customElements.define('covid-sc-app', CovidScApp);

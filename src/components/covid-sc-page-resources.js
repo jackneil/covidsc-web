@@ -10,15 +10,14 @@ import { IronFlex, IronFlexAlignment } from './flex-styles.js';
 import './covid-sc-data-card.js';
 
 export class CovidScPageResources extends LitElement {
-
+  // eslint-disable-next-line no-useless-constructor
   constructor() {
     super();
     // redundant placeholder
   }
 
   static get properties() {
-    return {
-    };
+    return {};
   }
 
   static get styles() {
@@ -27,8 +26,7 @@ export class CovidScPageResources extends LitElement {
       IronFlexAlignment,
       css`
         :host {
-
-          background-color: #ffffff;
+          background-color: var(--Background-Color-White);
         }
 
         .module-container {
@@ -39,7 +37,7 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #393939;
+          color: var(--Primary-Text-Color);
           margin: 4px 8px 4px 8px;
         }
 
@@ -54,7 +52,7 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #393939;
+          color: var(--Primary-Text-Color);
         }
 
         .module-content {
@@ -71,7 +69,7 @@ export class CovidScPageResources extends LitElement {
           line-height: normal;
           letter-spacing: normal;
           text-align: right;
-          color: #393939;
+          color: var(--Primary-Text-Color);
           margin: 0px 8px 4px 8px;
         }
 
@@ -117,46 +115,14 @@ export class CovidScPageResources extends LitElement {
         }
 
         mwc-button {
-          --mdc-theme-primary: #e9437a;
-          --mdc-theme-on-primary: white;
-        }
-
-        .data-table {
-          border-radius: 4px;
-          overflow:hidden;
-        }
-        .data-table-row {
-          height: 48px;
-          font-size: 16px;
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #393939;
-        }
-
-        .data-table-row > div {
-          flex: 1;
-          text-align: left;
-        }
-
-        .data-table-row > div:nth-of-type(1) {
-          /* flex: 1 1 100%; */
-          margin-left: 10px;
-        }
-
-        .data-table > div:nth-of-type(even){
-          background-color: #d8d8d8;
-        }
-        .data-table > div:nth-of-type(odd){
-          background-color: #f0f0f0;
+          --mdc-theme-primary: var(--Primary-Action-Color);
+          --mdc-theme-on-primary: var(--Background-Color-White);
         }
 
         .footer {
           width: 100%;
           height: 41px;
-          background-color: #393939;
+          background-color: var(--Primary-Text-Color);
           font-family: Roboto;
           font-size: 12px;
           font-weight: normal;
@@ -165,10 +131,10 @@ export class CovidScPageResources extends LitElement {
           line-height: normal;
           letter-spacing: normal;
           text-align: center;
-          color: #d8d8d8;
+          color: var(--Background-Color-Dark);
         }
         .footer > div > a {
-          color: #ffffff;
+          color: var(--Background-Color-White);
         }
 
         .nav-header {
@@ -182,7 +148,7 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #ffffff;
+          color: var(--Background-Color-White);
         }
 
         a.colored {
@@ -195,7 +161,7 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #e9437a;
+          color: var(--Primary-Action-Color);
           text-decoration: none;
         }
 
@@ -208,7 +174,7 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #393939;
+          color: var(--Primary-Text-Color);
         }
 
         h2 {
@@ -219,10 +185,10 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #e9437a;
+          color: var(--Primary-Action-Color);
         }
 
-        p {
+        p.hint {
           width: 604px;
           font-family: Roboto;
           font-size: 12px;
@@ -231,15 +197,12 @@ export class CovidScPageResources extends LitElement {
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
-          color: #8c8c8c;
-        }
-
-        .hint {
+          color: var(--Secondary-Text-Color);
           margin-top: 2px;
           width: 100%;
         }
 
-        @media only screen and (min-width : 628px) {
+        @media only screen and (min-width: 628px) {
           .action-button {
             /* width: 200px; */
           }
@@ -264,7 +227,7 @@ export class CovidScPageResources extends LitElement {
             flex-grow: 1;
           }
         }
-      `
+      `,
     ];
   }
 
@@ -301,27 +264,44 @@ export class CovidScPageResources extends LitElement {
               Learn more about COVID-19
             </div>
             <div class="module-content">
-              <a class="colored" target="_blank" href="https://www.scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19?referrer=covidsc"><b>SC DHEC</b></a>
+              <a
+                class="colored"
+                target="_blank"
+                href="https://www.scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19?referrer=covidsc"
+                ><b>SC DHEC</b></a
+              >
               <p class="hint">
                 Learn more about COVID-19 and how to prevent the spread of infectious diseases.
               </p>
             </div>
             <div class="module-content">
-              <a class="colored" target="_blank" href="https://emcrit.org/ibcc/covid19/?referrer=covidsc"><b>IBCC</b></a>
+              <a
+                class="colored"
+                target="_blank"
+                href="https://emcrit.org/ibcc/covid19/?referrer=covidsc"
+                ><b>IBCC</b></a
+              >
               <p class="hint">
-                In-depth information about the COVID-19 virus from the Internet Book of Critical Care (IBCC)
+                In-depth information about the COVID-19 virus from the Internet Book of Critical
+                Care (IBCC)
               </p>
             </div>
           </div>
 
           <div class="layout vertical module-container">
             <div class="module-title">
-            Employees
+              Employees
             </div>
             <div class="module-content">
-              <a class="colored" target="_blank" href="https://dew.sc.gov/covid-hub?referrer=covidsc"><b>COVID-19 Resource Hub</b></a>
+              <a
+                class="colored"
+                target="_blank"
+                href="https://dew.sc.gov/covid-hub?referrer=covidsc"
+                ><b>COVID-19 Resource Hub</b></a
+              >
               <p class="hint">
-                Learn about your rights as an employee and how you can get financial aid during this time.
+                Learn about your rights as an employee and how you can get financial aid during this
+                time.
               </p>
             </div>
           </div>
@@ -330,23 +310,30 @@ export class CovidScPageResources extends LitElement {
               Small Businesses
             </div>
             <div class="module-content">
-              <a class="colored" target="_blank" href="https://scsbdc.ecenterdirect.com/signup?referrer=covidsc"><b>SC SBDC</b></a>
-              <p class="hint">
-              </p>
+              <a
+                class="colored"
+                target="_blank"
+                href="https://scsbdc.ecenterdirect.com/signup?referrer=covidsc"
+                ><b>SC SBDC</b></a
+              >
+              <p class="hint"></p>
             </div>
           </div>
         </div>
-        <div class="layout flex">
-
-        </div>
+        <div class="layout flex"></div>
         <div class="footer layout vertical center-justified">
           <div>
-            Powered by <a target="_blank" href="https://www.hank.ai/?referrer=covidsc" class="buttonlink">Hank.ai</a> and <a target="_blank" href="https://www.krum.io/?referrer=covidsc" class="buttonlink">Krumware</a>
+            Powered by
+            <a target="_blank" href="https://www.hank.ai/?referrer=covidsc" class="buttonlink"
+              >Hank.ai</a
+            >
+            and
+            <a target="_blank" href="https://www.krum.io/?referrer=covidsc" class="buttonlink"
+              >Krumware</a
+            >
           </div>
         </div>
       </div>
-
-
     `;
   }
 
@@ -354,8 +341,6 @@ export class CovidScPageResources extends LitElement {
     // this.getData();
     this.counts = {};
   }
-
 }
-
 
 customElements.define('covid-sc-page-resources', CovidScPageResources);

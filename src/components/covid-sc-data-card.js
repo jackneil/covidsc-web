@@ -48,18 +48,18 @@ export class CovidScDataCard extends LitElement {
           line-height: normal;
           letter-spacing: normal;
           text-align: center;
-          color: #393939;
+          color: var(--Primary-Text-Color);
         }
         .title {
           height: 32px;
           line-height: 32px;
-          background-color: #d8d8d8;
+          background-color: var(--Background-Color-Dark);
         }
         .value {
-          color: #393939;
+          color: var(--Primary-Text-Color);
         }
         .delta {
-          color: #8c8c8c;
+          color: var(--Secondary-Text-Color);
         }
       `,
     ];

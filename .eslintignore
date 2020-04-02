@@ -1,3 +1,5 @@
 docs/**/*
 404.html
 src/scripts/**/*
+node_modules/**/*
+src/components/chartjs-adapter-luxon.js
