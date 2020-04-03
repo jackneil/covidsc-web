@@ -33,19 +33,14 @@
     }
   </style>
   <title>CovidSC - Information and Resources for South Carolina</title>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js');
-      });
-    };
-  </script>
 </head>
 
 <body>
   <covid-sc-app></covid-sc-app>
+  <pwa-update swpath="sw.js" updateevent="SKIP_WAITING"></pwa-update>
 
   <script type="module" src="./src/covid-sc-app.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate"></script>
 </body>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
