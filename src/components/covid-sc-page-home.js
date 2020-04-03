@@ -426,14 +426,16 @@ export class CovidScPageHome extends LitElement {
     this.getData();
   }
 
+  // eslint-disable-next-line class-methods-use-this, no-unused-vars
   changeSelectedCounty(e) {
-    this.selectedCounty = e.path[0].value;
-    // console.log(this,this.countyData);
-    if (this.countyData && this.countyData[this.selectedCounty]) {
-      this.chartData.countyData = this.countyData[this.selectedCounty];
-      // console.log(this.selectedCounty,this.chartData.countyData);
-      this.updateChart();
-    }
+    // console.log(e);
+    // change to e.target.selected
+    // this.selectedCounty = e.path[0].value;
+    // if (this.countyData && this.countyData[this.selectedCounty]) {
+    //   this.chartData.countyData = this.countyData[this.selectedCounty];
+    //   // console.log(this.selectedCounty,this.chartData.countyData);
+    //   this.updateChart();
+    // }
   }
 
   updateChart() {
@@ -579,10 +581,16 @@ export class CovidScPageHome extends LitElement {
           .reduce((accumulator, val) => {
             if (!accumulator[val.County]) accumulator[val.County] = [];
             // let's go ahead and build the dataset values here
-            accumulator[val.County].unshift({
-              t: new Date(val.Date).toISOString().substring(0, 10),
-              y: val.Confirmed,
-            });
+            try {
+              accumulator[val.County].unshift({
+                t: new Date(val.LastUpdate).toISOString().substring(0, 10),
+                y: val.Confirmed,
+              });
+            } catch (e) {
+              // console.log(val.LastUpdate);
+              // console.log("parse error: ", e)
+            }
+
             return accumulator;
           }, {});
         // console.log(this.stateData);
@@ -597,10 +605,15 @@ export class CovidScPageHome extends LitElement {
           .reduce((accumulator, val) => {
             if (!accumulator[val.County]) accumulator[val.County] = [];
             // let's go ahead and build the dataset values here
-            accumulator[val.County].unshift({
-              t: new Date(val.Date).toISOString().substring(0, 10),
-              y: val.Confirmed,
-            });
+            try {
+              accumulator[val.County].unshift({
+                t: new Date(val.LastUpdate).toISOString().substring(0, 10),
+                y: val.Confirmed,
+              });
+            } catch (e) {
+              // console.log(val.LastUpdate);
+              // console.log("parse error: ", e)
+            }
             return accumulator;
           }, {});
         // console.log(this.countyData);
