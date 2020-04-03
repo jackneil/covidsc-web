@@ -10,4 +10,4 @@ RUN npm install && npm run build
 
 EXPOSE 8000
 
-ENTRYPOINT ["npm", "run", "start:build"]
+ENTRYPOINT ["npm", "run", "start:server"]
