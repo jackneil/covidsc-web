@@ -365,7 +365,7 @@ export class CovidScPageHome extends LitElement {
               <mwc-list-item value="York">York</mwc-list-item>
               <mwc-list-item value="Richland">Richland</mwc-list-item>
             </mwc-select>
-            <canvas id="chart" width="400" height="400"></canvas>
+            <canvas id="chart" width="400" height="230"></canvas>
           </div>
           <div class="module-footer">
             ${this.counts && this.counts.national && this.counts.national.lastUpdate
@@ -540,7 +540,8 @@ export class CovidScPageHome extends LitElement {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
-    const currents = `https://aws.covidsc.com/data/covid_latest.json?v=${new Date().getTime()}`;
+    // const currents = `https://aws.covidsc.com/data/covid_latest.json?v=${new Date().getTime()}`;
+    const currents = `https://aws.covidsc.com/data/covid_latest_SC.json?v=${new Date().getTime()}`;
     const totals = `https://aws.covidsc.com/data/covid_latest_SC_FULL.json?v=${new Date().getTime()}`;
     // var jsonfile = "data/covid_latest.json";
     function commas(num) {
@@ -719,7 +720,7 @@ export class CovidScPageHome extends LitElement {
             this.countyStats = [...this.countyStats, countyObj];
           }
         }
-        this.hotspots = { confirmedCircles: confirmedCircles, deathCircles: deathCircles };
+        this.hotspots = { confirmedCircles, deathCircles };
         // console.log(confirmedCircles);
         this.requestUpdate();
       });
