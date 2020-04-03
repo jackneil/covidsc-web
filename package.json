@@ -12,7 +12,8 @@
     "storybook:build": "build-storybook",
     "start:build": "es-dev-server --root-dir docs --app-index index.html --open --compatibility none",
     "build": "rimraf docs && rollup -c rollup.config.js",
-    "start": "es-dev-server --app-index index.html --node-resolve --open --watch"
+    "start": "es-dev-server --app-index index.html --node-resolve --open --watch",
+    "start:server": "es-dev-server --root-dir docs --app-index index.html"
   },
   "devDependencies": {
     "@open-wc/building-rollup": "^0.21.0",
