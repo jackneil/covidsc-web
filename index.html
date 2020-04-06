@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Information and resources about COVID for the State of South Carolina">
-  <base href="/">
+  
   <link rel='manifest' href='./src/manifest.json'>
   <link rel="shortcut icon" href="/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -36,6 +36,42 @@
 </head>
 
 <body>
+  
+  <script src="https://static.landbot.io/umicore/UmiAccessPoint.js"></script>
+  <script SameSite="None; Secure" src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
+<script>
+  var myLandbot = new LandbotPopup({
+    index: 'https://landbot.io/u/H-425846-85U6RSZFC8RLG2G0/index.html',
+  });
+</script><script>
+  var geocoder;
+
+  // Show a proactive message on landbot load
+  myLandbot.on('landbot-load', function() {
+    myLandbot.sendProactive({
+      "message": "Let me help you find what you need.",
+      "author": "CovidSC HelpBot",
+      "avatar": "https://storage.googleapis.com/media.helloumi.com/105897/channels/5S3N8WZWXWDJ91NU6KEF6WG7W1YY0SU5.png",
+      "extra": {
+        "hide_textbox": true
+      }
+    });
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position){
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        myLandbot.send('landbot-custom-data', {
+          latitude:lat,
+          longitude:long
+        });
+        console.log(position);
+      });
+    }
+  });
+</script>
+
+
+
   <covid-sc-app></covid-sc-app>
   <pwa-update swpath="sw.js" updateevent="SKIP_WAITING"></pwa-update>
 
