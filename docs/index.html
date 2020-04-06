@@ -16,6 +16,39 @@
 
     </head>
     <body>
+        
+        <script src="https://static.landbot.io/umicore/UmiAccessPoint.js"></script>
+        <script SameSite="None; Secure" src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
+        <script>
+            var myLandbot = new LandbotPopup({
+                index: 'https://landbot.io/u/H-425846-85U6RSZFC8RLG2G0/index.html',
+            });
+            </script><script>
+            var geocoder;
+
+            // Show a proactive message on landbot load
+            myLandbot.on('landbot-load', function() {
+                myLandbot.sendProactive({
+                "message": "Let me help you find what you need.",
+                "author": "CovidSC HelpBot",
+                "avatar": "https://storage.googleapis.com/media.helloumi.com/105897/channels/5S3N8WZWXWDJ91NU6KEF6WG7W1YY0SU5.png",
+                "extra": {
+                    "hide_textbox": true
+                }
+                });
+                if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(position){
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    myLandbot.send('landbot-custom-data', {
+                    latitude:lat,
+                    longitude:long
+                    });
+                    console.log(position);
+                });
+                }
+            });
+        </script>
         <covid-sc-app></covid-sc-app>
         <pwa-update swpath="sw.js" updateevent="SKIP_WAITING"></pwa-update>
         <script>window.importShim=t=>import(t.startsWith(".")?new URL(t,document.baseURI):t);</script>
